@@ -38,7 +38,7 @@ $items = $root->item;
     <section>
         <?php foreach ($items as $item) : ?>
             <article>
-                <a href="#"><img src="<?= $item->children("media", true)->content["url"] ?>" alt=""/></a>
+                <a href="#"><img src="<?= $item->children("media", true)->content->attributes()["url"] ?>" alt=""/></a>
                 <!-- Title --> <h1><?= $item->title ?></h1>
                 <!-- Description --> <p> <?= $item->description ?></p>
                 <!-- Link --><a href="<?= $item->link ?>" class="readmore">Read more</a>
