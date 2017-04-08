@@ -4,8 +4,6 @@ echo "<br/><br/><br/><br/><br/>";
 $xml = simplexml_load_file("http://rss.nytimes.com/services/xml/rss/nyt/World.xml") or die ("Can't load XML!");
 $root = $xml->channel;
 $items = $root->item;
-print_r($items);
-//print_r($xml);
 ?>
 <!DOCTYPE html>
 <html>
