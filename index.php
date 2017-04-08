@@ -2,7 +2,10 @@
 echo "<br/><br/><br/><br/><br/>";
 
 $xml = simplexml_load_file("http://rss.nytimes.com/services/xml/rss/nyt/World.xml") or die ("Can't load XML!");
-
+$root = $xml->channel;
+$items = $root->item;
+print_r($items);
+//print_r($xml);
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,13 +33,15 @@ $xml = simplexml_load_file("http://rss.nytimes.com/services/xml/rss/nyt/World.xm
 		</header>
 		<div id="secwrapper">
 			<section>
+                <?php foreach($items as $item) : ?>
 					<article>
 						<a href="#"><img src="https://static01.nyt.com/images/misc/NYT_logo_rss_250x40.png" alt=""/></a>
-						<h1>Title</h1>
-						<p>Description</p>
-						<a href="#" class="readmore">Read more</a>
-						<p style="color:blue;">1/1/2001</p>
+						<h1>Title: <?= $item->title ?></h1>
+						<p>Description: <?= $item->description ?></p>
+						<a href="<?= $item->link ?>" class="readmore">Read more</a>
+						<p style="color:blue;"><?= $item->pubDate ?></p>
 					</article>
+                <?php endforeach; ?>
 			</section>
 		</div>
 		<footer>
