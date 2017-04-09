@@ -4,9 +4,6 @@ echo "<br/><br/><br/><br/><br/>";
 $xml = simplexml_load_file("http://rss.nytimes.com/services/xml/rss/nyt/World.xml") or die ("Can't load XML!");
 $root = $xml->channel;
 $items = $root->item;
-
-#Gets ride of warning errors, warning errors were messing up my if statement
-error_reporting(E_ALL ^ E_WARNING);
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,11 +39,11 @@ error_reporting(E_ALL ^ E_WARNING);
         <?php foreach ($items as $item) : ?>
             <?php
 
-            if (null !== $item->children("media", true)->content->attributes()["url"]) {
-
+            // If the "media" attribute exists, it will have an URL attribute
+            // If not, set the url to the static NYT logo
+            if (isset($item->children('media',true)->content)) {
                 $url = $item->children("media", true)->content->attributes()["url"];
             } else {
-
                 $url = "https://static01.nyt.com/images/misc/NYT_logo_rss_250x40.png";
             }
 
@@ -66,8 +63,3 @@ error_reporting(E_ALL ^ E_WARNING);
 </footer>
 </body>
 </html>
-		
-		
-			
-    
-    
