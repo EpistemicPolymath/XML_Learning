@@ -123,8 +123,8 @@ section{
 }
 #secwrapper{
 	/*background: url('images/bg.gif') fixed;
-	background-color: #f47771;*/ 
-	padding-top: 20px; 
+	background-color: #f47771;*/
+	padding-top: 100px; 
 }
 article{
 	width: 280px;
@@ -171,7 +171,7 @@ article p{
 	height: 125px;
 	display: inline-block;
 	margin: 5px 4px 6px 7px;
-	border: 1px solid #c3c3c3; 
+	border: 1px solid #c3c3c3;
 }
 #sponsors a p{
 	margin: 50px auto;
@@ -207,4 +207,3 @@ footer p{
     display: inline;
     zoom: 1;
 }
-
